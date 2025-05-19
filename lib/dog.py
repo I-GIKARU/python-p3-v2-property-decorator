@@ -9,12 +9,12 @@ APPROVED_BREEDS = [
     "Pointer"
 ]
 
-
 class Dog:
     def __init__(self, name='Fido', breed='Mastiff'):
-        self.name = name
-        self.breed = breed
+        self.name = name  # invokes setter
+        self.breed = breed  # invokes setter
 
+    # --- name property ---
     def get_name(self):
         return self._name
 
@@ -22,11 +22,11 @@ class Dog:
         if isinstance(name, str) and 1 <= len(name) <= 25:
             self._name = name.title()
         else:
-            raise ValueError(
-                "Name must be string between 1 and 25 characters.")
+            raise ValueError("Name must be string between 1 and 25 characters.")
 
     name = property(get_name, set_name)
 
+    # --- breed property ---
     def get_breed(self):
         return self._breed
 
